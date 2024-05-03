@@ -1,6 +1,6 @@
-import { Hono } from "hono";
-import { z } from "zod";
-import courseResponse from "../mockData/courses/courseById";
+import { Hono } from 'hono';
+import { z } from 'zod';
+import courseResponse from '../mockData/courses/courseById';
 
 const course = new Hono();
 
@@ -9,7 +9,7 @@ const paramsSchema = z.object({
   courseId: z.string().min(1).max(10),
 });
 
-course.get("/:strm/:courseId", (c) => {
+course.get('/:strm/:courseId', (c) => {
   const { strm, courseId } = paramsSchema.parse(c.req.param());
 
   return c.json(courseResponse);
