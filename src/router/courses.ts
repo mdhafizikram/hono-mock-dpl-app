@@ -9,7 +9,6 @@ const paramsSchema = z.object({
   courseId: z.string().min(1).max(10),
 });
 
-course.get("/", (c) => c.text("Hello Node.js!"));
 course.get("/:strm/:courseId", (c) => {
   const { strm, courseId } = paramsSchema.parse(c.req.param());
 

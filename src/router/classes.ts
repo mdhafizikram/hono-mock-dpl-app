@@ -9,7 +9,6 @@ const paramsSchema = z.object({
   classByNumber: z.string().min(1).max(6),
 });
 
-classRoute.get("/", (c) => c.text("Hello Node.js!"));
 classRoute.get("/:strm/:classNumber", (c) => {
   const { strm, classByNumber } = paramsSchema.parse(c.req.param());
 
